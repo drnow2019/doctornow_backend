@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User app Api</title>
+  <style> 
+    .content {
+      width: 60%;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .content h1 {
+      font-weight: 400;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .content h2 {
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #333;
+      margin: 0 0 20px;
+    }
+    .content p {
+      font-size: 1em;
+      font-weight: 300;
+      line-height: 1.5em;
+      margin: 0 0 20px; 
+    }
+    .content p:last-child {
+      margin: 0;
+    }
+    .content a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff0;
+      color: #000;
+      text-decoration: none;
+    }
+    .content a.button:hover {
+      background: #000;
+      color: #ff0;
+    }
+    .content.title {
+      position: relative;
+      background: none;
+      border: 2px dashed #333;
+    }
+    .content.title h1 span.demo {
+      display: inline-block;
+      font-size: .5em;
+      padding: 5px 10px;
+      background: #000;
+      color: #fff;
+      vertical-align: top;
+      margin: 7px 0 0;
+    }
+    .content.title .back-to-article {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+    }
+    .content.title .back-to-article a {
+      padding: 10px 20px;
+      background: #f60;
+      color: #fff;
+      text-decoration: none;
+    }
+    .content.title .back-to-article a:hover {
+      background: #f90;
+    }
+    .content.title .back-to-article a i {
+      margin-left: 5px;
+    }
+    .content.white {
+      background: #fff;
+      box-shadow: 0 0 10px #999;
+    }
+    .content.black {
+      background: #000;
+    }
+    .content.black p {
+      color: #999;
+    }
+    .content.black p a {
+      color: #08c;
+    }
+    .accordion-container {
+      width: 100%;
+      margin: 0 0 20px;
+      clear: both;
+    }
+    .accordion-toggle {
+      position: relative;
+      display: block;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: 300;
+      background: #BBB;
+      color: #fff;
+      text-decoration: none;
+      font-family: Bree serif !important;
+    }
+    .accordion-toggle.open {
+      background:#BE971C;
+      color: #fff;
+    }
+    .accordion-toggle:hover {
+      background: #BE971C;
+      color: #fff!important;
+    }
+    .accordion-toggle span.toggle-icon {
+      position: absolute;
+      top: 17px;
+      left: 20px;
+      font-size: 1.5em;
+    }
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      overflow: auto;
+      font-family: Bree serif;
+    }
+    .accordion-content img { 
+      display: block;
+      float: left;
+      margin: 0 15px 10px 0;
+      max-width: 100%;
+      height: auto;
+    }
+     
+    /* media query for mobile */
+    @media (max-width: 767px) {
+      .content {
+        width: auto;
+      }
+      .accordion-content {
+        padding: 10px 0;
+        overflow: inherit;
+      }
+    }
+  </style>
+  <div class="container pages">
+    <div class="row text-left" style="padding:10px;">
+      <h2 style="text-align:center;"></h2>
+      <div class="page-header"><h3> USER  API</h3></div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+                <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">1. Normal Signup</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>adduser</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>name,email,mobile,dob,gender(m/f),signup_type(normal),address,device_type,device_token,password,confirm_password,member_name,member_dob,member_gender(m/f),member_relationship</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+                  {
+                    "status": "SUCCESS",
+                    "message": "User added Successfully",
+                    "requestKey": "adduser",
+                    "adduser": {
+                        "user_id": 23,
+                        "name": "tt",
+                        "email": "test55656@gmail.com",
+                        "mobile": "6655456677",
+                        "dob": "2019-09-03",
+                        "gender": "m",
+                        "address": "bly",
+                        "address_detail": "jhjhjh",
+                        "token": "2bw0IgUWY2e1u5ScKcWY"
+       }
+}    </pre>
+          </p>
+          <p> <h5>Sample Error Response: </h5>
+            <pre>
+            {
+    "status": "FAILURE",
+    "message": "Email / Phone already exists.",
+    "requestKey": "adddoctor"
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="container pages">
+    <div class="row text-left" style="padding:10px;">
+      <h2 style="text-align:center;"></h2>
+    
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+                <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">1. Social Signup</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>adduser</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'name', 'email', 'signup_type (facebook, google)', 'socialToken', 'profilePic,mobile,gender,dob,address,address_detail'
+                         device_type,device_token,</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+                 
+   </pre>
+          </p>
+          <p> <h5>Sample Error Response: </h5>
+            <pre>
+         
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        
+       
+
+       <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">2. Check Email Or Mobile Already exists</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>checkEmail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>email,mobile</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        {
+              "status": "FAILURE",
+              "message": "Email Id already exists.",
+              "requestKey": "checkEmail"
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+  <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">2. Check Social Token Exists or not</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>checkSocialToken</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>socialToken</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+      {
+          "status": "FAILURE",
+          "message": "Social Token already exists.",
+          "requestKey": "checkEmail"
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+       
+              
+       
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">2. Login</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>login</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>email,password,device_token,device_type</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+         {
+    "status": "SUCCESS",
+    "message": "User Login Successfully",
+    "requestKey": "login",
+    "login": {
+        "name": "anas11",
+        "email": "test@gmail.com",
+        "mobile": "9690716305",
+        "dob": "2019-05-02",
+        "gender": "f",
+        "address": "test",
+        "token": "3z2HFnGlZklVo301eOYK"
+    }
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          {
+           "status": "FAILURE",
+            "message": "Email/Phone is empty",
+            "requestKey": "login"
+          }
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">3. User Profile</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>userProfile</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: token</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+         {
+            "status": "SUCCESS",
+            "message": "Users Data seen successfully",
+            "requestKey": "userProfile",
+            "userProfile": {
+                "name": "tt",
+                "email": "t55est55656@gmail.com",
+                "mobile": "665545446677",
+                "dob": "2019-09-03",
+                "gender": "m",
+                "address": "bly",
+                "address_detail": "jhjhjh",
+                "image": ""
+    }
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+            {
+              "status": "FAILURE",
+              "message": "token mismatch ...Please logOut.",
+               "requestKey": "userProfile"
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">4. Update User Profile</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>updateProfile</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: name,email,mobile,dob,gender(m/f),address,address_detail,token,image</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+              "status": "SUCCESS",
+              "message": "User edit Successfully",
+              "requestKey": "updateProfile"
+           }
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+        <div class="page-header">Service Url :  http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">6.Change Password</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>changePassword</p>
+          <p> <h5>Method: </h5>POST</p>
+          <p> <h5>Parameters: </h5>old_pass,new_pass,confirm_pass,token</p>
+          p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+           
+            </pre>
+          </p>
+        
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">7.Forgot Password </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>forgotPassword</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'mobile'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+   <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">7.Update Password </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>updatepassword</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'new_pass,confirm_pass,otp'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: This api is used for reset forgot password</h5></p>
+        </div>
+
+       
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">8. Add Member</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addMember</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: token,name,dob,relationship,gender(m/f)</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+            "status": "SUCCESS",
+            "message": "User member added Successfully",
+            "requestKey": "addMember",
+            "addMember": {
+                "user_id": 10
+            }
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">9. Member List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>memberList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>token</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+      {
+            "status": "SUCCESS",
+            "memberList": [
+                {
+                    "id": "15",
+                    "name": "vishal",
+                    "dob": "1970-01-01",
+                    "gender": "",
+                    "relationship": "Brother"
+                }
+            ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">9. Member Profile</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>memberProfile</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>token,member_id</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+     {
+            "status": "SUCCESS",
+            "message": "Member Data seen successfully",
+            "requestKey": "memberProfile",
+            "memberProfile": {
+                "name": "pathak",
+                "dob": "01-01-1970",
+                "gender": "f",
+                "address": "sister",
+                "image": null
+            }
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">10.  Edit Member</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editMember</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>token,member_id,name,dob,relationship,gender(m/f),image</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">11. Delete Member  </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>deleteMember</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">12. Logout  </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>logout</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>token</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">13. DOctor Listing  </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>doctorListing</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>''</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+    "status": "SUCCESS",
+    "doctorListing": [
+        {
+            "id": "55",
+            "name": "Garg",
+            "mobile": "7895413040",
+            "email": "stanley@1017gmail.com",
+            "specialty": "",
+            "license_no": "7895",
+            "experience": "11",
+            "clinic_name": "Drnow",
+            "distance": "12",
+            "image": ""
+        },
+        {
+            "id": "54",
+            "name": "Garg",
+            "mobile": "7895413099",
+            "email": "stanley@1011gmail.com",
+            "specialty": "",
+            "license_no": "",
+            "experience": "0",
+            "clinic_name": "",
+            "distance": "",
+            "image": ""
+        },
+       
+        {
+            "id": "1",
+            "name": "anas malik",
+            "mobile": "9690716309",
+            "email": "mohdanas212226@gmail.com",
+            "specialty": "skin",
+            "license_no": "",
+            "experience": "0",
+            "clinic_name": "vk",
+            "distance": "3",
+            "image": ""
+        }
+    ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">14. Search Doctor </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>searchDoctor</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'keywords'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+       {
+          "status": "SUCCESS",
+          "doctorListing": [
+              {
+                  "id": "2",
+                  "name": "sk gupta",
+                  "mobile": "56777777777",
+                  "email": "fb@gmail.com",
+                  "specialty": "skin",
+                  "license_no": "vcc",
+                  "experience": "56",
+                  "clinic_name": "ghfghf",
+                  "distance": "3",
+                  "image": ""
+              },
+              {
+                  "id": "1",
+                  "name": "anas malik",
+                  "mobile": "9690716309",
+                  "email": "mohdanas212226@gmail.com",
+                  "specialty": "skin",
+                  "license_no": "",
+                  "experience": "0",
+                  "clinic_name": "vk",
+                  "distance": "3",
+                  "image": ""
+              }
+          ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update Notification Status </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>notification</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token','status(on/off)' </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Get Notification Status </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>getNotificationStatus</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token' </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+                "status": "SUCCESS",
+                "getNotificationStatus": "off",
+                "message": "status seen successfully."
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">15.Add Booking </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addBooking</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,doctor_id,address_type,address,promocode,frees,member_name,reason_visit </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+              "status": "SUCCESS",
+              "message": "Booking added Successfully"
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+            <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add Call Booking </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addCallBooking</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,doctor_id,promocode,frees,member_name,reason_visit </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+              "status": "SUCCESS",
+              "message": "Call Booking added Successfully"
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+            <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. My Booking </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>myBooking</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+                "status": "SUCCESS",
+                "bookingList": [
+                    {
+                        "doctor_name": "vcvcxvx",
+                        "specialty": "2",
+                        "booking_type": "home",
+                        "booking_date": "2019-06-24",
+                        "booking_time": "05:23 AM"
+                    },
+                    {
+                        "doctor_name": "vcvcxvx",
+                        "specialty": "2",
+                        "booking_type": "home",
+                        "booking_date": "2019-06-24",
+                        "booking_time": "05:26 AM"
+                    },
+                    {
+                        "doctor_name": "vcvcxvx",
+                        "specialty": "2",
+                        "booking_type": "call",
+                        "booking_date": "2019-06-24",
+                        "booking_time": "05:27 AM"
+                    }
+                ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add Hospital Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addHospitalRecords</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,hospital_name,provider_name,provider_specility,service_date ,image,user_type(user/member)</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+            "status": "SUCCESS",
+            "message": "User hospital record added successfully."
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show User Hospital Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showHospitalDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,id '</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+            "status": "SUCCESS",
+            "hospitalDetail": [
+                {
+                    "hospital_name": "sjm",
+                    "provider_name": "hjhj",
+                    "provider_specility": "test",
+                    "service_date": "2019-02-05"
+                },
+                {
+                    "hospital_name": "sjm",
+                    "provider_name": "test",
+                    "provider_specility": "test",
+                    "service_date": "2019-02-05"
+                },
+                {
+                    "hospital_name": "sjm",
+                    "provider_name": "test",
+                    "provider_specility": "test",
+                    "service_date": "2019-02-05"
+                }
+            ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+
+
+
+  <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add user Specialty</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addSpecialty</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,specialty,specialty_type,service_date ,image,user_type(user/member)'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+         {
+            "status": "SUCCESS",
+            "message": "User Specialty record added successfully."
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show user Specialty</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showSpecialtyDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,id '</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+       {
+            "status": "SUCCESS",
+            "specialtyDetail": [
+                {
+                    "specialty": "sjm",
+                    "specialty_type": "hjhj",
+                    "service_date": "2019-02-05"
+                },
+                {
+                    "specialty": "sjm",
+                    "specialty_type": "hjhj",
+                    "service_date": "2019-02-05"
+                }
+            ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add Lab Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addLab</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token ,lab_name,prescription_name,lab_date,image,user_type(user/member)'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+   {
+            "status": "SUCCESS",
+            "message": "User Lab record added successfully."
+        }
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+
+
+     <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show Lab Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showLabDetails</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,id '</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+  {
+            "status": "SUCCESS",
+            "labDetails": [
+                {
+                    "lab_name": "sjm",
+                    "prescription_name": "hjhj",
+                    "lab_date": "2019-02-05"
+                }
+            ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+
+
+     <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add Physical Therapy Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addPhysicalTherapy</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token ,therapy_name,therapy_date,image,user_type(user/member)'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+           {
+              "status": "SUCCESS",
+              "message": "User Physical Therapy record added successfully."
+          }
+                      </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show Physical Therapy Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showPhysicalTherapy</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token ,id'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+             {
+              "status": "SUCCESS",
+              "physicalTherapy": [
+                  {
+                      "therapy_name": "sjm",
+                      "therapy_date": "2019-02-05"
+                  }
+              ]
+}
+                      </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add other  Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addOther</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,description,date,image,user_type(user/member) '</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+                    {
+              "status": "SUCCESS",
+              "message": "User other  record added successfully."
+}
+                      </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+           <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show other  Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showOtherDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,id '</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+                 {
+                "status": "SUCCESS",
+                "otherDetail": [
+                    {
+                        "description": "sjm",
+                        "date": "2019-04-03",
+                        "image": ""
+                    },
+                    {
+                        "description": "sjm",
+                        "date": "2019-04-03",
+                        "image": ""
+                    },
+                    {
+                        "description": "sjm",
+                        "date": "1970-01-01",
+                        "image": ""
+                    }
+                ]
+}
+                      </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Add Pharmacy  Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addPharmacy</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,pharmacy_name,pharmacy_provider_name,service_date,image ,user_type(user/member)'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+                {
+                  "status": "SUCCESS",
+                  "message": "User Pharmacy  record added successfully."
+              }
+                      </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show Pharmacy  Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showPharmacyDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke ,id'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+             {
+              "status": "SUCCESS",
+              "pharmacyDetail": [
+                  {
+                      "id": "1",
+                      "pharmacy_name": "sjm",
+                      "pharmacy_provider_name": "hjhj",
+                      "service_date": "1970-01-01"
+                  }
+              ]
+}
+                      </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Delete Medical    Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>deleteMedicalRecords</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,type(hospital/specialty/lab/physical/other/pharmacy) '</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+           {
+              "status": "SUCCESS",
+              "message": "User pharmacy record delete successfully."
+}         </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update hospital Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editHospitalRecords</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,hospital_name,provider_name,provider_specility,service_date,image'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+        {
+          "status": "SUCCESS",
+          "message": "User hospital record edit successfully."
+}    </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update User Specialty Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editSpecialty</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,specialty,specialty_type,service_date,image'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+     {
+            "status": "SUCCESS",
+            "message": "User Specialty record edit successfully."
+}   </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update User Lab Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editLab</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,lab_name,prescription_name,lab_date,image'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+   {
+          "status": "SUCCESS",
+          "message": "User Lab record edit successfully."
+}  </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+
+      <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update User Therapy Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editPhysicalTherapy</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,therapy_date,therapy_name,image'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+              {
+                "status": "SUCCESS",
+                "message": "User Physical Therapy record edit successfully."
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update User Other Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editOther</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,description,date,image'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+                "status": "SUCCESS",
+                "message": "User other  record edit successfully."
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update User pharmacy Records</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>editPharmacy</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,pharmacy_name,pharmacy_provider_name,service_date,image'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+              "status": "SUCCESS",
+              "message": "User Pharmacy  record edit successfully."
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update medical history</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>showMedicalHistory</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'toke,id,type(hospital,pharmacy,physical,other,lab,specialty)'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+          "status": "SUCCESS",
+          "": "specialty detail seen successfully.",
+          "editdetail": {
+              "id": "7",
+              "specialty": "test1",
+              "specialty_type": "test",
+              "service_date": "2019-05-03",
+              "type": null,
+              "images": []
+          }
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Show all user medical history</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>medicalHistory</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token,user_type(user/member)'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+    "status": "SUCCESS",
+    "hospitalDetail": [
+        {
+            "id": "2",
+            "hospital_name": "sjm",
+            "provider_name": "test",
+            "provider_specility": "test",
+            "service_date": "2019-02-05",
+            "image": ""
+        },
+        {
+            "id": "1",
+            "hospital_name": "sjm1",
+            "provider_name": "test1",
+            "provider_specility": "skin",
+            "service_date": "2099-09-08",
+            "image": ""
+        }
+    ],
+    "specialtyDetail": [
+        {
+            "id": "2",
+            "specialty": "sjm",
+            "specialty_type": "hjhj",
+            "service_date": "2019-02-05",
+            "image": ""
+        },
+        {
+            "id": "1",
+            "specialty": "t",
+            "specialty_type": "tt",
+            "service_date": "1233-09-09",
+            "image": ""
+        }
+    ],
+    "labDetail": [
+        {
+            "id": "1",
+            "lab_name": "tt",
+            "prescription_name": "tt",
+            "lab_date": "2111-04-02",
+            "image": "0"
+        }
+    ],
+    "physicalDetails": false,
+    "otherDetail": [
+        {
+            "id": "1",
+            "description": "cxcxcxxccx",
+            "date": "2018-01-02",
+            "image": ""
+        }
+    ],
+    "pharmacyDetail": false
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Home Vist Listing</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>homeVistiLIsting</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        {
+          "status": "SUCCESS",
+          "homeVisit": [
+              {
+                  "id": "42",
+                  "name": "amit",
+                  "mobile": "77887666",
+                  "email": "amit@gmail.com",
+                  "specialty": "fev",
+                  "license_no": "",
+                  "experience": "0",
+                  "clinic_name": "vk",
+                  "distance": "5",
+                  "image": ""
+              },
+             
+             
+              {
+                  "id": "1",
+                  "name": "anas malik",
+                  "mobile": "9690716309",
+                  "email": "mohdanas212226@gmail.com",
+                  "specialty": "skin",
+                  "license_no": "",
+                  "experience": "0",
+                  "clinic_name": "vk",
+                  "distance": "3",
+                  "image": ""
+              }
+          ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+
+      <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Call Vist Listing</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>callVistListing</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        {
+          "status": "SUCCESS",
+          "callVist": [
+              {
+                  "id": "42",
+                  "name": "amit",
+                  "mobile": "77887666",
+                  "email": "amit@gmail.com",
+                  "specialty": "fev",
+                  "license_no": "",
+                  "experience": "0",
+                  "clinic_name": "vk",
+                  "distance": "5",
+                  "image": ""
+              },
+             
+             
+              {
+                  "id": "1",
+                  "name": "anas malik",
+                  "mobile": "9690716309",
+                  "email": "mohdanas212226@gmail.com",
+                  "specialty": "skin",
+                  "license_no": "",
+                  "experience": "0",
+                  "clinic_name": "vk",
+                  "distance": "3",
+                  "image": ""
+              }
+          ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+
+
+       <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Scheduling</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addScheduling</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,doctor_id,address_type,address,schedule_time,schedule_date,promocode,frees </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+       
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+            <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Past Booking List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>pastBookingList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+         {
+            "status": "SUCCESS",
+            "message": "Past Booking seen successfully",
+            "pastbooking": [
+                {
+                    "name": "Priyanka ",
+                    "email": "qwerty@gmail.com",
+                    "mobile": "7017749975",
+                    "image": "http://mobulous.co.in/doctor_now/doctor_profile/66524919.jpg",
+                    "qualification": "",
+                    "created_date": "2019-06-26 00:00:00",
+                    "address": "bareilly",
+                    "address_type": "home",
+                    "booking_type": "",
+                    "reason_visit": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 150",
+                    "member_name": "vishal"
+                }
+            ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Upcoming Booking List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>upcomingBookingList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+      {
+            "status": "SUCCESS",
+            "message": "upcoming booking seen successfully",
+            "upcomingBooking": [
+                {
+                    "name": "vishal",
+                    "email": "garggarg1@gmail.com",
+                    "mobile": "909090909",
+                    "image": "http://mobulous.co.in/doctor_now/doctor_profile/82654557.jpg",
+                    "qualification": "BMS",
+                    "created_date": "2019-07-05 01:11:44",
+                    "address": "",
+                    "address_type": "",
+                    "booking_type": "call",
+                    "reason_visit": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 150",
+                    "member_name": "vishal"
+                },
+                {
+                    "name": "vishal",
+                    "email": "vishalvishal1@gmail.com",
+                    "mobile": "987654321",
+                    "image": "",
+                    "qualification": "",
+                    "created_date": "2019-07-04 07:07:57",
+                    "address": "gg",
+                    "address_type": "Office",
+                    "booking_type": "home",
+                    "reason_visit": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 150",
+                    "member_name": "vishal"
+                }
+            ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Get Member List By Id</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>memberListById</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:user_id </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+     
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Add Rating</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addRating</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,doctor_id,rating,comment,status(yes/no) </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+     
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+  <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Doctor Type </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>doctorType</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+        {
+            "status": "SUCCESS",
+            "message": "Doctor Type seen successfully.",
+            "doctorType": [
+                {
+                    "id": "2",
+                    "name": "Anesthesiologist"
+                },
+                {
+                    "id": "1",
+                    "name": "Cardiologist"
+                }
+            ]
+        }
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Search Doctor By Type </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>searchDoctor</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:doctor_type </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+        {
+            "status": "SUCCESS",
+            "message": "search record show successfully.",
+            "doctorListing": [
+                {
+                    "id": "14",
+                    "name": "vccvxxc",
+                    "mobile": "4354",
+                    "email": "anas@gmail.com",
+                    "specialty": "2",
+                    "license_no": "hgfgh",
+                    "experience": "6",
+                    "clinic_name": "hghfg",
+                    "distance": "2",
+                    "image": ""
+                },
+                {
+                    "id": "13",
+                    "name": "bhjhhj",
+                    "mobile": "878868",
+                    "email": "nn@gmail.com",
+                    "specialty": "2",
+                    "license_no": "hgjgg",
+                    "experience": "6",
+                    "clinic_name": "hjhj",
+                    "distance": "2",
+                    "image": ""
+                },
+                {
+                    "id": "12",
+                    "name": "anas",
+                    "mobile": "878868",
+                    "email": "hfgfhg",
+                    "specialty": "2",
+                    "license_no": "",
+                    "experience": "7",
+                    "clinic_name": "hjjh",
+                    "distance": "2",
+                    "image": ""
+                },
+                {
+                    "id": "11",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                },
+                {
+                    "id": "10",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                },
+                {
+                    "id": "9",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                },
+                {
+                    "id": "8",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                },
+                {
+                    "id": "7",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                },
+                {
+                    "id": "5",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                },
+                {
+                    "id": "4",
+                    "name": "vcvcxvx",
+                    "mobile": "56777777777",
+                    "email": "mohdanas212226@gmail.com",
+                    "specialty": "2",
+                    "license_no": "vcc",
+                    "experience": "56",
+                    "clinic_name": "ghfghf",
+                    "distance": "3",
+                    "image": ""
+                }
+            ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+        
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Past Medical Detail </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>pastMedicalDetails</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,user_type </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+       {
+                "status": "SUCCESS",
+                "message": "medical detail seen successfully.",
+                "hospitalDetail": [],
+                "specialtyDetail": [],
+                "labDetail": [
+                    {
+                        "id": "24",
+                        "lab_name": "lab new11",
+                        "prescription_name": "MD NAME",
+                        "lab_date": "2019-07-17",
+                        "type": "lab",
+                        "images": [
+                            {
+                                "image": "http://mobulous.co.in/doctor_now/images/34057121.jpg"
+                            },
+                            {
+                                "image": "http://mobulous.co.in/doctor_now/images/29615104.jpg"
+                            },
+                            {
+                                "image": "http://mobulous.co.in/doctor_now/images/47306891.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "22",
+                        "lab_name": "anas anme lab11jhkj",
+                        "prescription_name": "anas test111jkhkj",
+                        "lab_date": "2019-02-04",
+                        "type": "lab",
+                        "images": []
+                    }
+                ],
+                "physicalDetails": [
+                    {
+                        "id": "14",
+                        "therapy_name": "hjhfggggfrff new",
+                        "therapy_date": "2019-07-17",
+                        "type": "physical",
+                        "images": [
+                            {
+                                "image": "http://mobulous.co.in/doctor_now/images/73421594.jpg"
+                            },
+                            {
+                                "image": "http://mobulous.co.in/doctor_now/images/75431649.jpg"
+                            }
+                        ]
+                    }
+                ],
+                "otherDetail": [
+                    {
+                        "id": "18",
+                        "description": "bdjhxghdyf new",
+                        "date": "2019-07-17",
+                        "type": "other",
+                        "images": [
+                            {
+                                "image": "http://mobulous.co.in/doctor_now/images/94448085.jpg"
+                            }
+                        ]
+                    }
+                ],
+                "pharmacyDetail": [
+                    {
+                        "id": "62",
+                        "pharmacy_name": "bdjjfhfh",
+                        "pharmacy_provider_name": "hfufuhf",
+                        "service_date": "2019-07-17",
+                        "type": "pharmacy",
+                        "images": []
+                    }
+                ],
+                "sessionDetail": {
+                    "subjective": "subjective",
+                    "objective": "obj",
+                    "assessment": "asses",
+                    "planning": "plan",
+                    "digital_signature": null
+                }
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Dilevery status </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>dileveryStatus</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,session_id,status(0=> for no , 1=> for yes) </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+       {
+          "status": "SUCCESS",
+          "message": "status change successfully."
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Notification List </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>myNotification</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+               <pre>
+             {
+            "status": "SUCCESS",
+            "message": "notification list seen successfully",
+            "notificationList": [
+                {
+                    "user_name": "Abhishek",
+                    "doctor_name": "Priyanka Mathur",
+                    "title": "Boocking Accepted",
+                    "message": "Booking Accepted Successfully by doctor",
+                    "date": "20-08-2019",
+                    "time": "05:43 pm"
+                },
+                {
+                    "user_name": "Abhishek",
+                    "doctor_name": "Priyanka Mathur",
+                    "title": "Boocking Rejected",
+                    "message": "Booking Rejected Successfully by doctor",
+                    "date": "20-08-2019",
+                    "time": "05:40 pm"
+                },
+                {
+                    "user_name": "Abhishek",
+                    "doctor_name": "Priyanka Mathur",
+                    "title": "Boocking Accepted",
+                    "message": "Booking Accepted Successfully by doctor",
+                    "date": "20-08-2019",
+                    "time": "05:31 pm"
+                }
+            ]
+        }
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Neareast Doctor by Current LatLong </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>getDoctorByLatlong</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:latitude,longitude </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+     {
+          "status": "SUCCESS",
+          "doctorList": [
+              {
+                  "id": "112",
+                  "name": "N VBN ",
+                  "mobile": "876756456",
+                  "email": "NBNBV@GMAIL.COM",
+                  "distance": "0.00005899369716644287"
+              },
+              {
+                  "id": "113",
+                  "name": "Rounaque",
+                  "mobile": "9667365084",
+                  "email": "rounaque@gmail.com",
+                  "distance": "4.395905445876965"
+              }
+          ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.notification Details</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>notificationDetails</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:booking_id,status </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+           {
+            "status": "SUCCESS",
+            "message": "notification detil seen successfully",
+            "notificationList": [
+                {
+                    "user_name": "Abhishek",
+                    "doctor_name": "Priyanka Mathur",
+                    "image": "http://mobulous.co.in/doctor_now/doctor_profile/13188606.jpg",
+                    "booking_type": "call",
+                    "specialty": "PT",
+                    "fees": "INR 1099",
+                    "clinic_name": "city hospital",
+                    "reason_visit": "ahahahahahah",
+                    "member_name": "hy tu",
+                    "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                    "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                    "type": null,
+                    "date": "22-08-2019",
+                    "time": "05:56 pm"
+                }
+            ]
+        }
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Tracking</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>doctorTrackingLatlong</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:booking_id,token </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+           {
+            "status": "SUCCESS",
+            "message": "tracking",
+            "tracking": {
+                "user_lat": "28.614722",
+                "user_long": "77.384328",
+                "doctor_lat": "28.625892",
+                "doctor_long": "77.377407",
+                "status": "0"
+            }
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Add Payment</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addPayment</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,booking_id,doctor_id,amount,status,transaction_id,order_id </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+         {
+          "status": "SUCCESS",
+          "message": "Payment add Successfully"
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Notification Read or unread</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>notificationRead</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:notification_id,status(1 for read notification) </h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+           
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Specific Promocode check</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>specificPromocode</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:promocode,doctor_id</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+           {
+    "status": "FAILURE",
+    "SUCCESS": "promotional or Voucher Code is correct.",
+    "discount": "60"
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Add user chat</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>SaveUserChat</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,message</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+          {
+          "status": "SUCCESS",
+          "message": "Message send successfully."
+      }
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Chat List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>chatList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+              {
+            "status": "SUCCESS",
+            "message": "chat list seen successfully",
+            "chatList": [
+                {
+                    "chat_id": "52",
+                    "user_name": "abhi pathak",
+                    "image": "http://mobulous.co.in/doctor_now/user_profile/61766451.jpg",
+                    "message": "hi",
+                    "sender_type": "reciver",
+                    "time": "11 hours ago"
+                },
+                {
+                    "chat_id": "53",
+                    "user_name": "abhi pathak",
+                    "image": "http://mobulous.co.in/doctor_now/user_profile/61766451.jpg",
+                    "message": "hello this is user",
+                    "sender_type": "sender",
+                    "time": "1 hour ago"
+                },
+                {
+                    "chat_id": "54",
+                    "user_name": "abhi pathak",
+                    "image": "http://mobulous.co.in/doctor_now/user_profile/61766451.jpg",
+                    "message": "how are you",
+                    "sender_type": "sender",
+                    "time": "51 minutes ago"
+                }
+            ]
+}
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+    
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+  <!-- Include all compiled plugins (below), or include individual files as needed --> 
+  <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+      $('.accordion-toggle').on('click', function(event){
+      event.preventDefault();
+      // create accordion variables
+      var accordion = $(this); 
+      var accordionContent = accordion.next('.accordion-content');
+      var accordionToggleIcon = $(this).children('.toggle-icon');
+
+      // toggle accordion link open class
+      accordion.toggleClass("open");
+      // toggle accordion content
+      accordionContent.slideToggle(250);
+
+      // change plus/minus icon
+      if (accordion.hasClass("open")) {
+      accordionToggleIcon.html("<i class='fa fa-minus-circle'></i>");
+      } else {
+      accordionToggleIcon.html("<i class='fa fa-plus-circle'></i>");
+      }
+      });
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+      $('ul.nav a').each(function(){
+      if(location.href === this.href){
+      $(this).addClass('active');
+      $('ul.nav a').not(this).removeClass('active');
+      return false;
+      }
+      });
+      });
+    </script> 
+  </body>
+</html>

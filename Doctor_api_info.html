@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doctor App api</title>
+  <style> 
+    .content {
+      width: 60%;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .content h1 {
+      font-weight: 400;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .content h2 {
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #333;
+      margin: 0 0 20px;
+    }
+    .content p {
+      font-size: 1em;
+      font-weight: 300;
+      line-height: 1.5em;
+      margin: 0 0 20px; 
+    }
+    .content p:last-child {
+      margin: 0;
+    }
+    .content a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff0;
+      color: #000;
+      text-decoration: none;
+    }
+    .content a.button:hover {
+      background: #000;
+      color: #ff0;
+    }
+    .content.title {
+      position: relative;
+      background: none;
+      border: 2px dashed #333;
+    }
+    .content.title h1 span.demo {
+      display: inline-block;
+      font-size: .5em;
+      padding: 5px 10px;
+      background: #000;
+      color: #fff;
+      vertical-align: top;
+      margin: 7px 0 0;
+    }
+    .content.title .back-to-article {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+    }
+    .content.title .back-to-article a {
+      padding: 10px 20px;
+      background: #f60;
+      color: #fff;
+      text-decoration: none;
+    }
+    .content.title .back-to-article a:hover {
+      background: #f90;
+    }
+    .content.title .back-to-article a i {
+      margin-left: 5px;
+    }
+    .content.white {
+      background: #fff;
+      box-shadow: 0 0 10px #999;
+    }
+    .content.black {
+      background: #000;
+    }
+    .content.black p {
+      color: #999;
+    }
+    .content.black p a {
+      color: #08c;
+    }
+    .accordion-container {
+      width: 100%;
+      margin: 0 0 20px;
+      clear: both;
+    }
+    .accordion-toggle {
+      position: relative;
+      display: block;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: 300;
+      background: #BBB;
+      color: #fff;
+      text-decoration: none;
+      font-family: Bree serif !important;
+    }
+    .accordion-toggle.open {
+      background:#BE971C;
+      color: #fff;
+    }
+    .accordion-toggle:hover {
+      background: #BE971C;
+      color: #fff!important;
+    }
+    .accordion-toggle span.toggle-icon {
+      position: absolute;
+      top: 17px;
+      left: 20px;
+      font-size: 1.5em;
+    }
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      overflow: auto;
+      font-family: Bree serif;
+    }
+    .accordion-content img { 
+      display: block;
+      float: left;
+      margin: 0 15px 10px 0;
+      max-width: 100%;
+      height: auto;
+    }
+     
+    /* media query for mobile */
+    @media (max-width: 767px) {
+      .content {
+        width: auto;
+      }
+      .accordion-content {
+        padding: 10px 0;
+        overflow: inherit;
+      }
+    }
+  </style>
+  <div class="container pages">
+    <div class="row text-left" style="padding:10px;">
+      <h2 style="text-align:center;"></h2>
+      <div class="page-header"><h3>Doctor API</h3></div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+                <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">1. Normal Signup</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addDoctor</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>name,email,mobile,dob,gender(m/f),signup_type(normal),address,device_type,device_token,password,confirm_password</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+                  "status": "SUCCESS",
+                  "message": "doctor added Successfully",
+                  "requestKey": "adddoctor",
+                 "adddoctor": {
+                          "doctor_id": 44,
+                          "name": "amit",
+                          "email": "amit83@gmail.com",
+                         "mobile": "986657545",
+                         "dob": "1970-01-01",
+                        "gender": "m",
+                          "address": "bbb",
+                         "token": "hYLmzsfAOf16pCMlZYXz"
+    }
+}
+            </pre>
+          </p>
+          <p> <h5>Sample Error Response: </h5>
+            <pre>
+            {
+              "status": "FAILURE",
+              "message": "Email / Phone already exists.",
+              "requestKey": "adddoctor"
+            }
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+   <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+                <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">1. Social Signup</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addDoctor</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'name', 'email', 'signup_type (facebook, google)', 'socialToken', 'profilePic'
+                         device_type,device_token,</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+                 
+   </pre>
+          </p>
+          <p> <h5>Sample Error Response: </h5>
+            <pre>
+         
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+        
+       <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">2. Check Email Or Mobile Already exists</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>checkEmail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>email,mobile</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        {
+              "status": "FAILURE",
+              "message": "Email Id already exists.",
+              "requestKey": "checkEmail"
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">2. Check Social Token</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>checkSocialToken</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>socialToken</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        {
+              "status": "FAILURE",
+              "message": "Email Id already exists.",
+              "requestKey": "checkEmail"
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+       
+              
+       
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">2. Login</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>login</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>email,password,device_token,device_type</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+              "status": "SUCCESS",
+              "message": "Doctor Login Successfully",
+              "requestKey": "Doctorlogin",
+              "login": {
+                  "name": "fdfgddf",
+                  "email": "a@gmail.com",
+                  "mobile": "89899898",
+                  "dob": "1970-01-01",
+                  "gender": "m",
+                  "address": "bareilly",
+                  "token": "AFhDXciIcAgoEzA4e3SR"
+    }
+}
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          {
+           "status": "FAILURE",
+            "message": "Email/Phone is empty",
+            "requestKey": "doctorlogin"
+          }
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">3. Add Doctor Preofessional Details</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addProfessionalDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'specialty', 'license_no', 'document_image', 'exp','qualification', 'clinic_name', 'home_visit_type', 'home_visit_days', 'call_visit_type', 'call_visit_days', 'city_operation', 'distance', 'signature_image','id,profile'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          {
+           "status": "SUCCESS",
+           "message": "doctor profile created Successfully",
+            "requestKey": "addProfessionalDetail"
+           }
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+            {
+              "status": "FAILURE",
+              "message": "token mismatch ...Please logOut.",
+               "requestKey": "addProfessionalDetail"
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">4. Add Bank Detail</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>addBank</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'id', bank_name', 'ac_holder_name', 'account_no','ifsc_code'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+            "status": "SUCCESS",
+            "message": "Bank added Successfully",
+           "requestKey": "addBank"
+          }
+            </pre>
+          </p>
+          <p> <h5>Sample error Response: </h5>
+            <pre>
+          
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: id means doctor id </h5></p>
+        </div>
+
+        <div class="page-header">Service Url :  http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">6.Show Doctor Personal Detail </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>personalDetail</p>
+          <p> <h5>Method: </h5>POST</p>
+           <p> <h5>Parameters: </h5>'token'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+             {
+                 "status": "SUCCESS",
+                "message": "Doctor personal detail seen successfully. ",
+               "requestKey": "personalDetail ",
+               "personalDetail": {
+                "id": "42",
+                "name": "amit",
+                "email": "amit@gmail.com",
+                "mobile": "77887666",
+                "dob": "1970-01-01",
+                "gender": "m",
+                "address": "bbb",
+                "image": null
+    }
+}
+            </pre>
+          </p>
+        
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">7.Show Doctor Preofessional Detail </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>professionalDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+             {
+                "status": "SUCCESS",
+                "message": "Doctor perofessional detail seen successfully. ",
+                "requestKey": "professionalDetail ",
+                "professionalDetail": {
+                    "id": "42",
+                    "specialty": "fev",
+                    "license_no": "",
+                    "document": "http://mobulous.co.in/doctor_now/document/5d0b605c60de4.gif",
+                    "experience": "0",
+                    "clinic_name": "vk",
+                    "home_visit_type": "yes",
+                    "home_visit_days": "4",
+                    "call_visit_type": "no",
+                    "call_visit_days": "4",
+                    "city_operation": "mm",
+                    "distance": "5",
+                    "digital_sign": "http://mobulous.co.in/doctor_now/signature/5d0b605c63c73.gif"
+    }
+}
+         
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+       
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">8. Update Personal Detail</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>updatePersonalDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token','name','email','mobile','gender(m/f)','dob','profile,address</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+               "status": "SUCCESS",
+               "message": "personal detail updated successfully."
+           }
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">9. Update Doctor Preofessional Detail </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>updateProfessionalDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>specialty,license,exp,clinic_name,home_visit_type,home_visit_days,call_visit_type,call_visit_days,city_operation,distance,token</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+               "status": "SUCCESS",
+               "message": "perofessional detail updated successfully."
+               "requestKey": "updateProfessionalDetail"
+
+           }
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">10. Update Bank Detail </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>updateBankDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>token,bank_name,ac_holder_name,account_no,ifsc_code</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">11. show Bank Detail  </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>bankDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+    "status": "SUCCESS",
+    "message": "Doctor Bank detail seen successfully. ",
+    "requestKey": "bankDetail ",
+    "bankDetail": {
+        "bank_name": null,
+        "ac_holder_name": null,
+        "account_no": null,
+        "ifsc_code": null
+    }
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">12. Change Password  </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>changePassword</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>old_pass,new_pass,confirm_pass,token</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+          
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">13. Forgot Password  </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>forgotPassword</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'mobile'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        
+   <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">7.Update Password </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>updatepassword</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'new_pass,confirm_pass,otp'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: This api is used for reset forgot password</h5></p>
+        </div>
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">14. Past Booking List </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>pastBookingList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token'</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+         {
+    "status": "SUCCESS",
+    "pastbooking": [
+        {
+            "name": "gffdfd",
+            "email": "w@gmail.com",
+            "mobile": "8978987",
+            "created_date": "2019-06-25 00:00:00",
+            "address": "bly",
+            "address_type": "office",
+            "booking_type": "home"
+        }
+    ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">15. Upcoming Booking List </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>upcomingBookinList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token' </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+              {
+    "status": "SUCCESS",
+    "pastbooking": [
+        {
+            "name": "gffdfd",
+            "email": "w@gmail.com",
+            "mobile": "8978987",
+            "created_date": "2019-06-25 00:00:00",
+            "address": "bly",
+            "address_type": "office",
+            "booking_type": "home"
+        }
+    ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+            <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Update Notification Status </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>notification</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token','status(on/off)' </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16. Get Notification Status </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>getNotificationStatus</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token' </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+                "status": "SUCCESS",
+                "getNotificationStatus": "off",
+                "message": "status seen successfully."
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+           <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Logout</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>logout</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5>'token' </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+           <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Doctor Qualification</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>qualification</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+                "status": "SUCCESS",
+                "message": "qualification List seen successfully.",
+                "qualification": [
+                    {
+                        "id": "3",
+                        "name": "BMS"
+                    },
+                    {
+                        "id": "2",
+                        "name": "BUMS"
+                    },
+                    {
+                        "id": "1",
+                        "name": "MBBS"
+                    }
+                ]
+}
+            </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Doctor city operation</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>city</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+            {
+              "status": "SUCCESS",
+              "message": "city List seen successfully.",
+              "city": [
+                  {
+                      "id": "2",
+                      "name": "delhi"
+                  },
+                  {
+                      "id": "1",
+                      "name": "noida"
+                  }
+              ]
+}    </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+            <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Doctor Specialty List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>specialtyList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           {
+            "status": "SUCCESS",
+            "message": "specility List seen successfully.",
+            "specialtyList": [
+                {
+                    "id": "2",
+                    "name": "Anesthesiologist"
+                },
+                {
+                    "id": "1",
+                    "name": "Cardiologist"
+                }
+            ]
+}   </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Bank  List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>bankList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters: </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+         {
+            "status": "SUCCESS",
+            "message": "Bank List seen successfully.",
+            "bankList": [
+                {
+                    "id": "4",
+                    "name": "PNB"
+                },
+                {
+                    "id": "3",
+                    "name": "HDFC"
+                },
+                {
+                    "id": "2",
+                    "name": "OBC"
+                },
+                {
+                    "id": "1",
+                    "name": "SBI"
+                }
+            ]
+}  </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Display Home Booking   List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>homeUSerBookingListing</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        {
+            "status": "SUCCESS",
+            "homeBookingList": [
+                {
+                    "user_name": "gffdfd",
+                    "address": "hjhg",
+                    "booking_type": "call",
+                    "reason_visit": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 150",
+                    "date": "19-06-2019",
+                    "time": "05:57:37"
+                }
+            ],
+            "message": "Home booing list  seen successfully."
+}
+
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Accept or Reject Booking </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>acceptBooking</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,booking_id,status(1=>for accept,2=>for reject),reason </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+      
+
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Get Reports </span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>getReportDetail</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,booking_id </h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+      
+   {
+    "status": "SUCCESS",
+    "message": "user medical detail seen successfully.",
+    "hospitalDetail": [
+        {
+            "id": "6",
+            "hospital_name": "Hospital 123",
+            "provider_name": "Provider 123",
+            "provider_specility": "m",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "hospital",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/37546124.jpeg"
+                }
+            ]
+        }
+    ],
+    "specialtyDetail": [
+        {
+            "id": "96",
+            "specialty": "Test111",
+            "specialty_type": "m",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "specialty",
+            "images": []
+        },
+        {
+            "id": "95",
+            "specialty": "asdasdasdasdasd",
+            "specialty_type": "f",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "specialty",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/78643731.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/61844458.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "94",
+            "specialty": "Ayesha Jains",
+            "specialty_type": "m",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "specialty",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/96592923.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "93",
+            "specialty": "Rahul",
+            "specialty_type": "m",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "specialty",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/48245007.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/62077719.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "92",
+            "specialty": "Krish",
+            "specialty_type": "m",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "specialty",
+            "images": []
+        },
+        {
+            "id": "91",
+            "specialty": "Prince",
+            "specialty_type": "m",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "specialty",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/25292036.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/91134459.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/38940877.jpeg"
+                }
+            ]
+        }
+    ],
+    "labDetail": [
+        {
+            "id": "12",
+            "lab_name": "Lab 999",
+            "prescription_name": "Prescription 999",
+            "lab_date": "2019-06-03",
+            "date": "05-07-2019",
+            "type": "lab",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/15730006.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/21695308.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/66159487.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "lab_name": "Lab 456",
+            "prescription_name": "Prescription 1111",
+            "lab_date": "2019-07-04",
+            "date": "05-07-2019",
+            "type": "lab",
+            "images": []
+        },
+        {
+            "id": "10",
+            "lab_name": "Lab 123",
+            "prescription_name": "Prescription !@#$",
+            "lab_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "lab",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/67794888.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/12124479.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "lab_name": "gdjdhejdnd",
+            "prescription_name": "dhdjydjdfg",
+            "lab_date": "2019-07-03",
+            "date": "05-07-2019",
+            "type": "lab",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/64536079.jpg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/10606722.jpg"
+                }
+            ]
+        }
+    ],
+    "physicalDetails": [],
+    "otherDetail": [],
+    "pharmacyDetail": [
+        {
+            "id": "18",
+            "pharmacy_name": "dfsrwebcvb",
+            "pharmacy_provider_name": "we’ve",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "pharmacy",
+            "images": []
+        },
+        {
+            "id": "17",
+            "pharmacy_name": "asdasdasd assess",
+            "pharmacy_provider_name": "asdasdasd",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "pharmacy",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/85292669.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "16",
+            "pharmacy_name": "sdfsdfsd",
+            "pharmacy_provider_name": "sdfsdfsd",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "pharmacy",
+            "images": []
+        },
+        {
+            "id": "15",
+            "pharmacy_name": "Pharmacy 111",
+            "pharmacy_provider_name": "Provider Name 0999",
+            "service_date": "2019-05-05",
+            "date": "05-07-2019",
+            "type": "pharmacy",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/37732069.jpeg"
+                },
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/80271597.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "pharmacy_name": "Pharmacy 999",
+            "pharmacy_provider_name": "Name Provider 000",
+            "service_date": "2019-07-05",
+            "date": "05-07-2019",
+            "type": "pharmacy",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/99475651.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "pharmacy_name": "Pharmacy 123",
+            "pharmacy_provider_name": "Pharmacy Provider 123",
+            "service_date": "2019-04-05",
+            "date": "05-07-2019",
+            "type": "pharmacy",
+            "images": [
+                {
+                    "image": "http://mobulous.co.in/doctor_now/images/60058966.jpeg"
+                }
+            ]
+        }
+    ],
+    "sessionDetail": [
+        {
+            "id": "1",
+            "subjective": "subjective",
+            "objective": "obj",
+            "assessment": "asses",
+            "planning": "plan",
+            "images": ""
+        }
+    ]
+}
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Home Session</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>homeSessionStart</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token ,booking_id,subjective,objective,assessment,planning,image,signature</h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        
+
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+     <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Call  Session</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>callSessionStart</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token ,booking_id,subjective,objective,assessment,planning,image,signature</h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+        
+
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+
+     <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Reject Reason List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>rejectReason</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+              {
+        "status": "SUCCESS",
+        "message": "Reject Reason List seen successfully.",
+        "rejectReason": [
+            {
+                "id": "3",
+                "name": "doctor unavailable"
+            },
+            {
+                "id": "2",
+                "name": "location far"
+            }
+        ]
+}
+ 
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Session status</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>sessionStatus</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:booking_id</h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+             
+ 
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Country List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>countryList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> </p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+             
+ 
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+
+ <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.State List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>stateList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> country_id</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+             
+ {
+    "status": "SUCCESS",
+    "message": "State List seen successfully.",
+    "state": [
+        {
+            "id": "1748",
+            "name": "at-Ta'mim"
+        },
+        {
+            "id": "1747",
+            "name": "as-Sulaymaniyah"
+        },
+        {
+            "id": "1746",
+            "name": "an-Najaf"
+        },
+        {
+            "id": "1745",
+            "name": "al-Qadisiyah"
+        },
+        {
+            "id": "1744",
+            "name": "al-Muthanna"
+        },
+        {
+            "id": "1743",
+            "name": "al-Basrah"
+        },
+        {
+            "id": "1742",
+            "name": "al-Anbar"
+        },
+        {
+            "id": "1741",
+            "name": "Wasit"
+        },
+        {
+            "id": "1740",
+            "name": "Salah-ad-Din"
+        },
+        {
+            "id": "1739",
+            "name": "Ninawa"
+        },
+        {
+            "id": "1738",
+            "name": "Maysan"
+        },
+        {
+            "id": "1737",
+            "name": "Kurdistan"
+        },
+        {
+            "id": "1736",
+            "name": "Karbala"
+        },
+        {
+            "id": "1735",
+            "name": "Irbil"
+        },
+        {
+            "id": "1734",
+            "name": "Erbil"
+        },
+        {
+            "id": "1733",
+            "name": "Diyala"
+        },
+        {
+            "id": "1732",
+            "name": "Dhi Qar"
+        },
+        {
+            "id": "1731",
+            "name": "Dahuk"
+        },
+        {
+            "id": "1730",
+            "name": "Baghdad"
+        },
+        {
+            "id": "1729",
+            "name": "Babil"
+        }
+    ]
+}
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+
+
+<div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.City List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>cityList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> state_id</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+             {
+    "status": "SUCCESS",
+    "message": "City List seen successfully.",
+    "city": [
+        {
+            "id": "21864",
+            "name": "as-Sulaymaniyah"
+        },
+        {
+            "id": "21863",
+            "name": "Qal'at Dizeh"
+        },
+        {
+            "id": "21862",
+            "name": "Panjwin"
+        },
+        {
+            "id": "21861",
+            "name": "Kusanjaq"
+        },
+        {
+            "id": "21860",
+            "name": "Halabjah"
+        },
+        {
+            "id": "21859",
+            "name": "Chamchamal"
+        }
+    ]
+}
+ 
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Doctor Status change (available or not available)</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>changeDoctorStatus</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> token,status(on/off)</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+               {
+            "status": "SUCCESS",
+            "message": "status change successfully."
+        }
+ 
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.My notification List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>myNotification</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> token</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+              {
+              "status": "SUCCESS",
+              "message": "notification list seen successfully",
+              "notificationList": [
+                  {
+                      "id": "52",
+                      "title": "Dr Priyanka Mathur has started the session, You can track him now",
+                      "message": "Dr Priyanka Mathur has started the session, You can track him now",
+                      "type": "homeStartSession",
+                      "date": "27-08-2019",
+                      "time": "11:50 am"
+                  },
+                  {
+                      "id": "51",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "27-08-2019",
+                      "time": "11:48 am"
+                  },
+                  {
+                      "id": "50",
+                      "title": "Dr Priyanka Mathur has started the session, You can track him now",
+                      "message": "Dr Priyanka Mathur has started the session, You can track him now",
+                      "type": "callStartSession",
+                      "date": "27-08-2019",
+                      "time": "11:44 am"
+                  },
+                  {
+                      "id": "48",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "27-08-2019",
+                      "time": "11:31 am"
+                  },
+                  {
+                      "id": "47",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "27-08-2019",
+                      "time": "10:46 am"
+                  },
+                  {
+                      "id": "46",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "07:05 pm"
+                  },
+                  {
+                      "id": "45",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "07:04 pm"
+                  },
+                  {
+                      "id": "44",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:55 pm"
+                  },
+                  {
+                      "id": "43",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:55 pm"
+                  },
+                  {
+                      "id": "42",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:53 pm"
+                  },
+                  {
+                      "id": "41",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:52 pm"
+                  },
+                  {
+                      "id": "40",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:52 pm"
+                  },
+                  {
+                      "id": "39",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:51 pm"
+                  },
+                  {
+                      "id": "38",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:50 pm"
+                  },
+                  {
+                      "id": "37",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:48 pm"
+                  },
+                  {
+                      "id": "36",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:47 pm"
+                  },
+                  {
+                      "id": "35",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:45 pm"
+                  },
+                  {
+                      "id": "34",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:44 pm"
+                  },
+                  {
+                      "id": "33",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:44 pm"
+                  },
+                  {
+                      "id": "32",
+                      "title": "Unfortunately, Dr will not be able to attain. Please contact Admin",
+                      "message": "Unfortunately, Dr will not be able to attain. Please contact Admin",
+                      "type": "rejected",
+                      "date": "26-08-2019",
+                      "time": "06:40 pm"
+                  },
+                  {
+                      "id": "31",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:36 pm"
+                  },
+                  {
+                      "id": "30",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:25 pm"
+                  },
+                  {
+                      "id": "29",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:23 pm"
+                  },
+                  {
+                      "id": "28",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:21 pm"
+                  },
+                  {
+                      "id": "27",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:20 pm"
+                  },
+                  {
+                      "id": "26",
+                      "title": "Unfortunately, Dr will not be able to attain. Please contact Admin",
+                      "message": "Unfortunately, Dr will not be able to attain. Please contact Admin",
+                      "type": "rejected",
+                      "date": "26-08-2019",
+                      "time": "06:19 pm"
+                  },
+                  {
+                      "id": "25",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:12 pm"
+                  },
+                  {
+                      "id": "24",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:11 pm"
+                  },
+                  {
+                      "id": "23",
+                      "title": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "message": "Your Booking Request has been confirmed, Please proceed with the Payment",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "06:08 pm"
+                  },
+                  {
+                      "id": "22",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "05:30 pm"
+                  },
+                  {
+                      "id": "21",
+                      "title": "Your booking request with Dr. Priyanka Mathur Rejected!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Rejected!",
+                      "type": "rejected",
+                      "date": "26-08-2019",
+                      "time": "04:46 pm"
+                  },
+                  {
+                      "id": "20",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "02:43 pm"
+                  },
+                  {
+                      "id": "19",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "02:38 pm"
+                  },
+                  {
+                      "id": "18",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "02:37 pm"
+                  },
+                  {
+                      "id": "17",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "02:33 pm"
+                  },
+                  {
+                      "id": "16",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "02:31 pm"
+                  },
+                  {
+                      "id": "15",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "02:24 pm"
+                  },
+                  {
+                      "id": "4",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "12:47 pm"
+                  },
+                  {
+                      "id": "3",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "12:42 pm"
+                  },
+                  {
+                      "id": "2",
+                      "title": "Your booking request with Dr. Priyanka Mathur Rejected!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Rejected!",
+                      "type": "rejected",
+                      "date": "26-08-2019",
+                      "time": "12:06 pm"
+                  },
+                  {
+                      "id": "1",
+                      "title": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "message": "Your booking request with Dr. Priyanka Mathur Confirmed!",
+                      "type": "accepted",
+                      "date": "26-08-2019",
+                      "time": "12:05 pm"
+                  }
+              ]
+}
+ 
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Doctor Latlong Update (for user tracking)</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>doctorTracking</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> latitude,longitude,booking_id</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+           
+         {
+    "status": "SUCCESS",
+    "message": "Latlong updated successfully"
+}
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+          <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Notification Status Read</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>notificationRead</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> notification_id,status(1 for read)</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+       
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes:This api will be hit when click on start session button </h5></p>
+        </div>
+
+         <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.My Earning</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>myEarning</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> token</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+            <pre>
+       {
+    "Status": "SUCCESS",
+    "message": "earning history show successfully.",
+    "monthlyEarning": "3996",
+    "totalHomeEarning": "3996",
+    "totlaCallEarning": 0,
+    "totalCall": 4,
+    "totalHome": 0
+}
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5></h5></p>
+        </div>
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/doctorcontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Earning Daetails</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>earningDetails</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:</h5> token,date,type</p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+         {
+          "Status": "SUCCESS",
+          "message": "earning history show successfully.",
+          "earningDetails": [
+              {
+                  "id": "10",
+                  "amount": "999.00",
+                  "created_date": "2019-09-05"
+              },
+              {
+                  "id": "9",
+                  "amount": "999.00",
+                  "created_date": "2019-09-05"
+              },
+              {
+                  "id": "8",
+                  "amount": "999.00",
+                  "created_date": "2019-09-05"
+              },
+              {
+                  "id": "5",
+                  "amount": "999.00",
+                  "created_date": "2019-09-04"
+              }
+          ]
+      }
+ </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5></h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Add Doctor chat</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>SaveDoctorChat</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token,message</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+          {
+          "status": "SUCCESS",
+          "message": "Message send successfully."
+      }
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+
+
+        <div class="page-header">Service Url : http://mobulous.co.in/doctor_now/api/usercontroller/</div><br/>
+          <a href="#" class="accordion-toggle"><span class="toggle-icon"><i class="fa fa-plus-circle"></i></span><span style="margin-left:50px;line-height: 1.5em;">16.Chat List</span></a>
+        <div class="accordion-content">
+          <p> <h5>API Name: </h5>chatList</p>
+          <p> <h5>Method: </h5>POST</p> 
+          <p> <h5>Parameters:token</h5></p>
+          <p> <h5>Response Required: </h5>SUCCESS or FAILURE</p>
+          <p> <h5>Sample Response: </h5>
+       <pre>
+              {
+            "status": "SUCCESS",
+            "message": "chat list seen successfully",
+            "chatList": [
+                {
+                    "chat_id": "52",
+                    "message": "hi",
+                    "sender_type": "reciver",
+                    "time": "10 hours ago"
+                },
+                {
+                    "chat_id": "53",
+                    "message": "hello this is user",
+                    "sender_type": "sender",
+                    "time": "19 minutes ago"
+                },
+                {
+                    "chat_id": "54",
+                    "message": "how are you",
+                    "sender_type": "sender",
+                    "time": "3 minutes ago"
+                }
+            ]
+        }
+           </pre>
+          </p>
+          <p> <h5>Test Status: </h5></p>
+          <p> <h5>Notes: </h5></p>
+        </div>
+    
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+  <!-- Include all compiled plugins (below), or include individual files as needed --> 
+  <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+      $('.accordion-toggle').on('click', function(event){
+      event.preventDefault();
+      // create accordion variables
+      var accordion = $(this); 
+      var accordionContent = accordion.next('.accordion-content');
+      var accordionToggleIcon = $(this).children('.toggle-icon');
+
+      // toggle accordion link open class
+      accordion.toggleClass("open");
+      // toggle accordion content
+      accordionContent.slideToggle(250);
+
+      // change plus/minus icon
+      if (accordion.hasClass("open")) {
+      accordionToggleIcon.html("<i class='fa fa-minus-circle'></i>");
+      } else {
+      accordionToggleIcon.html("<i class='fa fa-plus-circle'></i>");
+      }
+      });
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+      $('ul.nav a').each(function(){
+      if(location.href === this.href){
+      $(this).addClass('active');
+      $('ul.nav a').not(this).removeClass('active');
+      return false;
+      }
+      });
+      });
+    </script> 
+  </body>
+</html>

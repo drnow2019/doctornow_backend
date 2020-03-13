@@ -1,0 +1,340 @@
+@charset "utf-8";
+/* CSS Document */
+
+.menu-sidebar .logo{
+    padding: 10px 28px;/*
+    background-color: #fff;
+    height: 75px;*/
+}
+
+.menu-sidebar .logo img{
+    width: 100%;
+}
+
+.navbar-sidebar .navbar__list li a { 
+    color: #5f5f5f; 
+}
+
+.navbar-sidebar .navbar__list li a:hover { 
+    color: #000; 
+}
+
+.main-content {
+    padding-top: 100px; 
+}
+
+.title-1 { 
+    font-weight: 600; 
+    color: #000;
+}
+
+
+.Add_Button{
+    padding: 16px 0;
+    text-align: right;
+}
+
+.Add_Button a{
+    padding: 8px 20px;
+    text-transform: capitalize;
+    color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #d60e0f;
+    box-shadow: 0px 6px 10px #ababab;
+    font-family: "Poppins", sans-serif;
+    line-height: normal;
+}
+
+.Add_Button a .zmdi{margin: 0 10px 0 0;}
+
+.Add_Button a:hover{
+    color: #fff;
+    background: #cc5c5c;
+}
+
+.alert{
+    width: 100%;
+    margin:0 auto;
+}
+
+.paneldatadrnow{
+    width: 23.3%;
+    margin: 0 20px 30px 0;
+    padding: 15px 10px;
+    transition: 0.5s all ease-in-out
+}
+
+.paneldatadrnow:hover{
+    transform: translate(0 ,-15px);
+}
+
+.paneldatadrnow .icomgntadro i{
+    font-size: 35px;
+}
+
+.paneldatadrnow .icomgntadro p{
+    margin: 0;
+    font-size: 15px;
+}
+
+.paneldatadrnow .single-chart{}
+
+.paneldatadrnow .single-chart svg{
+    margin: 3px auto;
+    max-width: 85%;
+}
+
+.daysselectsdr { 
+    margin: 15px 0 0 0;
+}
+
+
+.table-data3 thead tr th,
+.table-data3 tbody td{
+    padding: 8px 15px;
+    vertical-align: middle;
+}
+ 
+
+.Doctor_Table{}
+
+
+.Doctor_Table table thead tr th:nth-child(1){ 
+} 
+ 
+.Doctor_Table table tr th:nth-child(4),
+.Doctor_Table table tr td:nth-child(4){ 
+}
+.Doctor_Table table thead tr th:nth-child(5){} 
+
+.Doctor_Table table tr td:nth-child(7) a{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+} 
+
+.Doctor_Table table tr td:nth-child(7) a img{
+    border-radius: inherit !important;
+    width: 100%;
+    height: 100%;
+} 
+
+table tr td select{
+    border: 1px solid #a0a0a0;
+    border-radius: 4px;
+    padding: 0 10px;
+    width: 100px;
+}
+
+.DocumentImages{
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.DocumentImages img{
+    width: 100%;
+    height: 100%;
+}
+
+.clear{
+    clear: both;
+}
+
+
+.Booking_User{
+    padding: 10px 10px;
+}
+
+.Booking_User h6{
+    font-size: 25px;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.Booking_User h6 span{}
+
+.Booking_User .bookpaneldrn{
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: none;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+}
+
+.Booking_User .bookpaneldrn .doctpropics{
+    float: left;
+    margin: 0;
+    width: 30%;
+    height: auto;
+    border-radius: 0;
+    border: none;
+    height: 315px;
+}
+
+.Booking_User .bookpaneldrn .doctinfors{
+    display: inline-block;
+    width: 70%;
+    float: left;
+    padding: 0 0 0 20px;
+}
+
+.Booking_User .bookpaneldrn .doctinfors h6{
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 0 5px 0;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .designationfrnow{}
+
+.Booking_User .bookpaneldrn .doctinfors .designationfrnow label{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .designationfrnow p{
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .clinicnamedrnow{
+    display: block;
+    padding: 6px 0 9px 36px;
+    position: relative;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .clinicnamedrnow figure{
+    position: absolute;
+    top: 6px;
+    left: 0;
+    margin: 0;
+    width: 23px;
+    height: auto;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .clinicnamedrnow figure img{
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .clinicnamedrnow label{
+    width: 23%;
+    margin: 0;
+    display: inline-block;
+    font-size: 14px;
+    position: relative;
+    vertical-align: top;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .clinicnamedrnow label:after{
+    content: ':';
+    position: absolute;
+    right: 10px;
+}
+
+.Booking_User .bookpaneldrn .doctinfors .clinicnamedrnow  p{
+    width: 76%;
+    float: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.Chat_Hide{
+    float: left;
+    width: 75%;
+    padding: 85px 0 0;
+    text-align: center;
+}
+
+.Chat_Hide h3{
+    font-size: 30px;
+    margin: 0 0 30px;
+    color: #000;
+}
+
+.Chat_Hide figure{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.Chat_Hide figure img{}
+
+.Chat_Hide h5{
+    font-weight: 600;
+    font-size: 18px;
+    color: #000;
+}
+
+.Chat_List .userinfo{
+    display: flex;
+    margin-bottom: 1px;
+    background: #fff;
+    padding: 0;
+}
+
+.Chat_List .userinfo a{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+.Chat_List .userinfo a:hover{
+    background-color: #f3f3f3;
+}
+
+.Chat_List .userinfo a .userpic{
+    float: left;
+    border: 2px solid #fbfbfb;
+    box-shadow: 0px 0px 10px #c7c7c7;
+    width: 40px;
+    height: 40px;
+}
+
+.Chat_List .userinfo a .userpic img{}
+
+.Chat_List .userinfo a .usrcrednt{
+    float: left;
+    width: 76%;
+}
+
+.Chat_List .userinfo a .usrcrednt h6{
+    font-size: 14px; 
+    color: #000;
+}
+
+.Chat_List .userinfo a .usrcrednt p{}
+
+ 
+.User_Table table th:nth-child(5),
+.Doctor_Table table th:nth-child(4),
+.Payment_Table table th:nth-child(5){
+    width: 120px; 
+    height: 57px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px
+}
+
+
+/*.User_Table table td:nth-child(4){
+    width: 150px;
+    display: flex;
+    height: 70px;
+    align-items: center;
+}*/
+
+
